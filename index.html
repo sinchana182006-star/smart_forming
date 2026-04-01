@@ -1,0 +1,41 @@
+Aa<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Farming Advisory</title>
+</head>
+
+<body style="font-family: Arial; text-align: center; background-color: #e8f5e9;">
+
+    <h1 style="color: green;">🌾 Smart Farming Advisory System</h1>
+    <p>🌱 ಬೆಳೆ ಸಲಹೆ ವ್ಯವಸ್ಥೆ (Kannada Support)</p>
+
+    <form method="POST">
+        <label>Crop:</label><br>
+        <input type="text" name="crop" required><br><br>
+
+        <label>City:</label><br>
+        <input type="text" name="city" required><br><br>
+
+        <button style="background-color: green; color: white; padding: 10px;">
+            Get Advice
+        </button>
+    </form>
+
+    {% if data %}
+        {% if data.error %}
+            <p style="color:red;">{{data.error}}</p>
+        {% else %}
+            <h2>Result:</h2>
+            <p>Crop: {{data.crop}}</p>
+            <p>Temperature: {{data.temp}} °C</p>
+            <p>Humidity: {{data.humidity}}%</p>
+            <p><b>Irrigation Advice:</b> {{data.irrigation}}</p>
+
+            <h3>Disease Detection (Demo)</h3>
+            <p>Leaf Spot detected 🌿</p>
+            <p>Use fungicide spray</p>
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>
